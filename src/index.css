@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Outfit:wght@300;400;500;600;700;800&family=Permanent+Marker&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ff2b2b;
+  --color-secondary: #ffffff;
+  --color-accent: #ff2b2b;
+  
+  --font-display: "Anton", sans-serif;
+  --font-body: "Outfit", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white font-body antialiased selection:bg-primary selection:text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display uppercase tracking-wider leading-none;
+  }
+
+  p {
+    @apply leading-relaxed text-white/70;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+  
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(255, 43, 43, 0.5), 0 0 40px rgba(255, 43, 43, 0.2);
+  }
+  
+  .neon-text {
+    text-shadow: 0 0 10px rgba(255, 43, 43, 0.8), 0 0 20px rgba(255, 43, 43, 0.4);
+  }
+
+  .glow-white {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+
+  .text-glow-white {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+
+  .premier-border {
+    @apply border border-white/20 hover:border-primary/50 transition-colors duration-500;
+  }
+
+  .premier-gradient {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  .graffiti-font {
+    font-family: 'Permanent Marker', cursive;
+  }
+}
